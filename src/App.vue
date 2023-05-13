@@ -29,7 +29,7 @@ export default {
         createShaderMaterial(shader, scene) {
             let material = new ShaderMaterial(shader, scene, BASE_URL + 'shaders/' + shader, {
                 attributes: ['position', 'uv'],
-                uniforms: ['worldViewProjection'],
+                uniforms: ['worldViewProjection', 'time'],
                 samplers: ['image']
             });
             material.backFaceCulling = false;
@@ -191,9 +191,11 @@ export default {
                 this.materials[this.filter].setTexture('image', this.textures[this.selected_texture]);
             }
         });
-
         // Render every frame
+        let start_time = new Date().getTime();
+
         engine.runRenderLoop(() => {
+            this.materials.ripple.setFloat('time', (new Date().getTime() - start_time)/1000);
             this.scene.render();
         });
     }

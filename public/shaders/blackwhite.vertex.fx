@@ -8,6 +8,7 @@ in vec2 uv;
 // Output
 out vec2 model_uv;
 
+
 void main() {
     // Pass UV coordinate onto the fragment shader
     model_uv = uv;
