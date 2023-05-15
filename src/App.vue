@@ -196,6 +196,8 @@ export default {
 
         engine.runRenderLoop(() => {
             this.materials.ripple.setFloat('time', (new Date().getTime() - start_time)/1000);
+            this.materials.custom.setFloat('time', (new Date().getTime() - start_time)/1000);
+
             this.scene.render();
         });
     }

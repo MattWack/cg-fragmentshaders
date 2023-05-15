@@ -13,7 +13,6 @@ void main() {
 
 
 
-
     model_uv = uv;
 
 
